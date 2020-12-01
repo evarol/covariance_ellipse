@@ -1,4 +1,4 @@
-function covariance_ellipse(Y,std_devs,dot_size,dot_color,line_color,line_width)
+function coor=covariance_ellipse(Y,std_devs,dot_size,dot_color,line_color,line_width)
 %% Draws covariance ellipse around 2-dimensional set of points - by EV
 %% INPUTS (REQUIRED):
 %% Y - 2-dimensional points - n x 2
@@ -8,7 +8,9 @@ function covariance_ellipse(Y,std_devs,dot_size,dot_color,line_color,line_width)
 %% dot_color - color of dots
 %% line_color - color of contour line
 %% line_width - color of contour line
-
+%% OUTPUT:
+%% figure with dots and covariance ellipse superimposed
+%% coor - coordinates of contour line (2 X K) - 1st row is x coordinate, 2nd row is y coordinate
 %% by E.V.
 
 if nargin<2
@@ -40,7 +42,7 @@ y = reshape(y,length(x2),length(x1));
 %% plot original dots
 plot(Y(:,1),Y(:,2),'.','MarkerSize',dot_size,'MarkerEdgeColor',dot_color);
 hold on
-%% plot the confidence band contour
-contour(x1,x2,y,1,'LineColor',line_color,'LineWidth',line_width);
+M=contour(x1,x2,y,1,'LineColor',line_color,'LineWidth',line_width);
+coor=M(:,2:end);
 hold off
 end
