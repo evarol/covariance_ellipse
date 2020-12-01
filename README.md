@@ -3,7 +3,7 @@ Draw a covariance ellipse around a sample of points
 
 Usage: 
 
-covariance_ellipse(Y,std_devs)
+coor = covariance_ellipse(Y,std_devs)
 
 Y - N x 2 matrix of points
 
@@ -12,3 +12,5 @@ std_devs - the number of standard deviations the covariance ellipse should cover
 Output:
 
 ![Demo](https://github.com/evarol/covariance_ellipse/blob/main/demo.png)
+
+coor - coordinates of the contour line
